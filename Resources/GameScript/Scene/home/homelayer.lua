@@ -55,9 +55,13 @@ function HomeLayer:create()
 	local mid_btn = {
 	 	{"activity",185, 305,
 	 		function()
-	 			HTTPS:send("Activity", {activity = "open", a = "activity", m = "activity"}, {success_callback = function(data)
-					switchScene("activity", data)
+--	 			HTTPS:send("Activity", {activity = "open", a = "activity", m = "activity"}, {success_callback = function(data)
+--					switchScene("activity", data)
+--				end})
+	 			HTTPS:send("Duplicate", {duplicate  = "open", a = "duplicate", m = "duplicate"}, {success_callback = function(data)
+					switchScene( "fb" )
 				end})
+      
 	 		end
 	 	},
     	{"king",185,420,function()

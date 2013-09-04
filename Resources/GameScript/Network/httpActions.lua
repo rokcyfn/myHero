@@ -14,6 +14,7 @@ require(SRC.."Data/Embattle")
 require(SRC.."Data/Dress")
 require(SRC.."Data/Shop")
 require(SRC.."Data/Chat")
+require(SRC.."Data/Fb")
 local M = {}
 
 --[[登录]]
@@ -257,6 +258,15 @@ function M.Sports_get(kind, data, callback)
 	if kind == 1 then
 	else
 		callback(data)
+	end
+	return true, data
+end
+--获取天塔一级界面数据
+function M.Duplicate_open(kind, data, callback)
+  if kind == 1 then
+	else
+	  DATA_Fb:setByKey( "baseList" , data.duplicate )
+		callback()
 	end
 	return true, data
 end

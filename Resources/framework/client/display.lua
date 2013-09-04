@@ -422,7 +422,7 @@ CCSprite can be created with an image, or with a sprite frame.
 -   CCSprite
 
 ]]
-function display.newSprite(filename, x, y)
+function display.newSprite(filename, x, y , alignX , alignY )
     local sprite, autoCleanupFilename
     if string.byte(filename) == 35 then -- first char is #
         local frame = display.newSpriteFrame(string.sub(filename, 2))
@@ -443,7 +443,8 @@ function display.newSprite(filename, x, y)
     if sprite then
         CCSpriteExtend.extend(sprite)
         sprite:setTag(102)    -- Sprite tag 缁熶竴涓?02
-        if x and y then sprite:setPosition(x, y) end
+--        if x and y then sprite:setPosition(x, y) end 
+        if x and y then setAnchPos( sprite , x , y , alignX or 0.5 , alignY or 0.5 ) end
         if autoCleanupFilename then
             sprite.IMAGE_FILENAME = autoCleanupFilename
         end
@@ -453,7 +454,6 @@ function display.newSprite(filename, x, y)
 
     return sprite
 end
-
 
 --[[--
 
