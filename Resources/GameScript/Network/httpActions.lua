@@ -270,5 +270,14 @@ function M.Duplicate_open(kind, data, callback)
 	end
 	return true, data
 end
+--获取天塔二级界面数据
+function M.Duplicate_emigrated(kind, data, callback)
+  if kind == 1 then
+	else
+	  DATA_Fb:setByKey( "two" , data.duplicate )
+		callback()
+	end
+	return true, data
+end
 	
 return M
